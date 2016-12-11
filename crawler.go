@@ -65,7 +65,7 @@ func ParseArticle(url string) *Article {
 	contentNodes := scrape.FindAll(richMediaContent, contentText)
 	summaryText := []string{}
 	for _, node := range contentNodes {
-		summaryText = append(summaryText, scrape.Text(node))
+		summaryText = append(summaryText, strings.TrimSpace(scrape.Text(node)))
 	}
 	article.Summary = strings.Join(summaryText, "\n")
 
